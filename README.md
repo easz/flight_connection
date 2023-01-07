@@ -38,7 +38,14 @@ The data is not really up to date.
 ### Detail
 
  - Use Serverless (e.g. AWS Lambda) to set up HTTP/REST
- - pre-Generate graph to represent routes
+ - pre-generate graph to represent routes (see [Notebook](sandbox.ipynb))
    - flight distance calculated with Haversine Formula
    - ground travel distance is approximated with applying a factor on Haversine distance
  - flight route is always prefered when finding shortest path
+ - The structure of input data:
+~~~
+    {
+      from: <IATA or ICAO code of the departure airport>,
+      to: <IATA or ICAO code of the destination airport>
+    }
+~~~

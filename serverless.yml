@@ -1,0 +1,19 @@
+service: flight-connection
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+  httpApi:
+    cors: true
+
+functions:
+  find_connection:
+    handler: handler.find_connection
+    events:
+      - httpApi:
+          path: /api/connection/find
+          method: POST
+plugins:
+  - serverless-python-requirements

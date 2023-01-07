@@ -1,5 +1,16 @@
 # Flight Connection
 
+## Requirement
+
+Install Python3 (e.g. with [conda](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html))
+
+Install necessary python requirements:
+
+~~~
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+~~~
+
 ### Quick Start
 
 ~~~

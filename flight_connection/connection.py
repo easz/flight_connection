@@ -46,8 +46,7 @@ def find_airport(df_airports=df_airports, id: int = None, code: str = None, attr
 
 def find_shortest_connection(df_airports=df_airports, g_routes=g_routes,
                              departure_id=None, destination_id=None,
-                             departure_code=None, destination_code=None,
-                             max_legs=4):
+                             departure_code=None, destination_code=None):
   """Find available connection with the shortest distance.
 
     Parameters:
@@ -66,8 +65,6 @@ def find_shortest_connection(df_airports=df_airports, g_routes=g_routes,
     Returns:
     list: a list of airport IDs to represent the avaiable connection.
   """
-  max_legs = max_legs or 4
-
   if departure_id is None and departure_code is not None:
     info = find_airport(df_airports=df_airports, code=departure_code, attribtes=['Airport ID'])
     departure_id = info.get('Airport ID') if info is not None else None
@@ -90,7 +87,7 @@ def find_shortest_connection(df_airports=df_airports, g_routes=g_routes,
                      source=departure_id,
                      target=destination_id,
                      weight=weight)))
-      return route if len(route)-1 <= max_legs else None
+      return route
     except nx.NodeNotFound:
       pass
     except nx.NetworkXNoPath:

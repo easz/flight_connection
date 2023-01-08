@@ -30,7 +30,7 @@ Running "serverless" from node_modules
     "headers": {
         "Content-Type": "application/json"
     },
-    "body": "{\"route\": [346, 1218, 3988, 2513], \"aiports\": [\"Munich Airport\", \"Barcelona International Airport\", \"Ministro Pistarini International Airport\", \"San Carlos De Bariloche Airport\"]}"
+    "body": "{\"route\": [\"MUC\", \"BCN\", \"EZE\", \"BRC\"], \"explain\": \"A route with 3 legs is found\", \"aiports\": [\"Munich Airport\", \"Barcelona International Airport\", \"Ministro Pistarini International Airport\", \"San Carlos De Bariloche Airport\"]}"
 }
 ~~~
 
@@ -57,6 +57,21 @@ The data is not really up to date.
 ~~~
     {
       from: <IATA or ICAO code of the departure airport>,
-      to: <IATA or ICAO code of the destination airport>
+      to: <IATA or ICAO code of the destination airport>,
+      max_flight_legs: <[Optional] maximal flight legs. Default: 4>,
+      max_ground_legs: <[Optional] maximal ground legs. Default: 1>
+    }
+~~~
+  - The structure of output data
+~~~
+    {
+      "statusCode": <HTTP status code>,
+      "headers": {
+          "Content-Type": "application/json"
+      },
+      "body": {
+        "route": <a list of airport IATA codes>,
+        "explain": <explanation text>
+        "aiports": <a list of corresponding airport name>,
     }
 ~~~

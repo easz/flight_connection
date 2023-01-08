@@ -71,7 +71,7 @@ The data is not really up to date.
       },
       "body": {
         "route": <a list of airport IATA codes>,
-        "explain": <explanation text>
         "aiports": <a list of corresponding airport name>,
+        "explain": <explanation text>
     }
 ~~~
